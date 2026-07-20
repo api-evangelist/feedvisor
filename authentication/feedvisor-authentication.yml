@@ -1,0 +1,38 @@
+generated: '2026-07-19'
+method: searched
+source: https://github.com/feedvisor/api-sample
+docs: https://feedvisor.com
+notes: >-
+  Grounded in Feedvisor's first-party External API sample code (feedvisor/api-sample,
+  ExternalApiHelper.java / AuthenticationExample.java). The full API reference lives in
+  Feedvisor's gated Knowledge Base; only the auth mechanics observable in the public
+  sample are captured here (no scheme is fabricated).
+summary:
+  types:
+  - oauth2
+  - http
+  oauth2_flows:
+  - clientCredentials
+  api_key_in: []
+schemes:
+- name: OAuth2ClientCredentials
+  type: oauth2
+  flow: clientCredentials
+  token_url: https://api.feedvisor.com/external/oauth/token/
+  token_request:
+    method: POST
+    content_type: application/x-www-form-urlencoded
+    body:
+      grant_type: client_credentials
+    client_auth: HTTP Basic (base64 of "client_id:client_secret" in Authorization header)
+  returns: JSON access_token
+  sources:
+  - https://github.com/feedvisor/api-sample
+- name: BearerToken
+  type: http
+  scheme: bearer
+  usage: >-
+    The access_token from the client-credentials exchange is sent as
+    "Authorization: Bearer <access_token>" on all subsequent External API calls.
+  sources:
+  - https://github.com/feedvisor/api-sample
