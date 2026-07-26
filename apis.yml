@@ -1,7 +1,12 @@
 aid: feedvisor
 name: Feedvisor
-description: Feedvisor is a company surfaced as a portfolio company of general-catalyst and added to the
-  API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: Feedvisor is an AI-powered agentic commerce platform for brands and large
+  sellers on Amazon, unifying advertising optimization, dynamic pricing, and competitive
+  market intelligence in a single system. Its Agentis platform and ProductSphere pricing
+  technology apply machine learning to manage Buy Box share, sponsored-ads spend (TACoS),
+  and margin across an $8B+ GMV base. Feedvisor also exposes an External API secured with
+  OAuth2 client-credentials for exporting configuration reports and importing pricing and
+  repricing feeds programmatically, letting brands automate listing and repricing operations.
 url: https://raw.githubusercontent.com/api-evangelist/feedvisor/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -9,14 +14,82 @@ x-backed-by:
 - general-catalyst
 x-tier: stub
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-19'
+image: https://feedvisor.com/wp-content/uploads/2026/02/Feedvisor_Wordmark_G_RGB-square-200x200-1.png
 tags:
 - Company
-apis: []
+- Amazon
+- E-Commerce
+- Retail
+- Advertising
+- Pricing
+- Repricing
+- Marketplace
+- Machine Learning
+- Optimization
+apis:
+- name: Feedvisor External API
+  description: Feedvisor's External API for exporting configuration reports and importing
+    pricing/repricing feeds. OAuth2 client-credentials auth; asynchronous report/feed
+    jobs are submitted then polled by request_id until Finished/Failed.
+  humanURL: https://feedvisor.com
+  baseURL: https://api.feedvisor.com/external
+  properties:
+  - type: Authentication
+    url: authentication/feedvisor-authentication.yml
+  - type: Conventions
+    url: conventions/feedvisor-conventions.yml
+  - type: SourceCode
+    url: https://github.com/feedvisor/api-sample
+  tags:
+  - Amazon
+  - Repricing
+  - Feeds
+  - Reports
+common:
+- type: Website
+  url: https://feedvisor.com
+- type: Blog
+  url: https://feedvisor.com/resources/
+- type: Support
+  url: https://feedvisor.com/contact-feedvisor/
+- type: Login
+  url: https://dashboard.feedvisor.com/login
+- type: TermsOfService
+  url: https://feedvisor.com/terms-and-conditions/
+- type: PrivacyPolicy
+  url: https://feedvisor.com/privacy-policy/
+- type: GitHubOrganization
+  url: https://github.com/feedvisor
+- type: Authentication
+  url: authentication/feedvisor-authentication.yml
+- type: Conventions
+  url: conventions/feedvisor-conventions.yml
+- type: LLMsTxt
+  url: llms/feedvisor-llms.txt
+- type: DomainSecurity
+  url: security/feedvisor-domain-security.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

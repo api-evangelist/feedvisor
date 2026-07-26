@@ -1,0 +1,76 @@
+generated: '2026-07-19'
+method: searched
+source: https://github.com/feedvisor/api-sample
+notes: >-
+  Cross-cutting request/response semantics for Feedvisor's External API, grounded in the
+  first-party sample code (feedvisor/api-sample). Only conventions observable in the public
+  sample are recorded; the full reference is in Feedvisor's gated Knowledge Base.
+base_url: https://api.feedvisor.com/external
+authentication:
+  style: oauth2-client-credentials + bearer
+  ref: authentication/feedvisor-authentication.yml
+account_scoping:
+  style: path-parameter
+  param: accountId
+  description: >-
+    Most resources are scoped under an account (storefront) id, e.g.
+    /{accountId}/report and /{accountId}/feed. Account ids are discovered from
+    GET /info, which returns an "accounts" map.
+async_jobs:
+  pattern: submit-then-poll
+  description: >-
+    Report exports and feed imports are asynchronous. A POST creates a job and returns a
+    numeric "request_id"; the client polls the job status endpoint until "status" is
+    "Finished" (success) or "Failed" (error), then downloads the result file.
+  submit:
+  - 'POST /{accountId}/report  (body: fileType e.g. XLSX, reportType e.g. CONFIGURATION)'
+  - 'POST /{accountId}/feed    (multipart file upload)'
+  status_field: status
+  terminal_states:
+  - Finished
+  - Failed
+  result_download:
+  - GET /{accountId}/report/{requestId}/file
+  - GET /{accountId}/feed/{requestId}/result_file
+  observed_poll_interval_ms: 5000
+operations_observed:
+- method: POST
+  path: /oauth/token/
+  summary: Exchange client credentials for an access token
+- method: GET
+  path: /info
+  summary: Get customer info including the accounts (storefronts) map
+- method: POST
+  path: /{accountId}/report
+  summary: Start a configuration report export job
+- method: GET
+  path: /{accountId}/report
+  summary: List report history
+- method: GET
+  path: /{accountId}/report/{requestId}
+  summary: Get report job status
+- method: GET
+  path: /{accountId}/report/{requestId}/file
+  summary: Download the report result file
+- method: POST
+  path: /{accountId}/feed
+  summary: Submit a feed import (e.g. repricing configuration)
+- method: GET
+  path: /{accountId}/feed
+  summary: List feed history
+- method: GET
+  path: /{accountId}/feed/{requestId}
+  summary: Get feed job status
+- method: GET
+  path: /{accountId}/feed/{requestId}/result_file
+  summary: Download the feed result file
+content_types:
+  reports: XLSX (spreadsheet configuration reports; also referenced CSV result files)
+idempotency:
+  documented: false
+  notes: No idempotency-key contract is documented in the public sample.
+pagination:
+  documented: false
+versioning:
+  documented: false
+  notes: No API version segment is present in the observed base path (/external).
