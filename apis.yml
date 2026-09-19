@@ -80,6 +80,11 @@ apis:
   tags:
   - Amazon
   - Repricing
+  - Feed
+  - Reports
+  tags_raw:
+  - Amazon
+  - Repricing
   - Feeds
   - Reports
 common:
