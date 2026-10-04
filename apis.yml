@@ -16,14 +16,18 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 deliveryModel:
   model: saas
-  open_source: false
+  license_evidence:
+    not_product:
+    - feedvisor/api-sample
+  open_source: unknown
   commercial: true
   callable_host: false
   label: Hosted service · you call their endpoint
-  confidence: medium
+  confidence: low
   source:
   - pricing
-  generated: '2026-08-28'
+  - repository-not-product
+  generated: '2026-09-25'
   method: derived
 accessModel:
   pricing: unknown
@@ -50,7 +54,7 @@ tags:
 - Pricing
 - Repricing
 - Marketplace
-- Machine-Learning
+- Machine Learning
 - Optimization
 tags_raw:
 - Company
@@ -63,6 +67,7 @@ tags_raw:
 - Marketplace
 - Machine Learning
 - Optimization
+- Machine-Learning
 apis:
 - name: Feedvisor External API
   description: Feedvisor's External API for exporting configuration reports and importing
