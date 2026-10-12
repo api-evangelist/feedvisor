@@ -1,0 +1,16 @@
+generated: '2026-10-12'
+method: none
+source:
+- https://zapier.com/apps/feedvisor/integrations
+- https://n8n.io/integrations/feedvisor/
+- https://composio.dev/toolkits/feedvisor
+- https://monid.ai/tools/feedvisor
+checked:
+- https://composio.dev/toolkits/feedvisor
+- https://monid.ai/tools/feedvisor
+- https://n8n.io/integrations/feedvisor/
+- https://zapier.com/apps/feedvisor/integrations
+summary: null
+marketplace_apps: []
+edges: []
+templates: []
