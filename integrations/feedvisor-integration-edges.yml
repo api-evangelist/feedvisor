@@ -12,6 +12,9 @@ checked:
 - https://zapier.com/apps/feedvisor/integrations
 - shopify/integrations/shopify-integration-edges.yml
 - bigcommerce/integrations/bigcommerce-integration-edges.yml
+- https://advertising.amazon.com/partners/directory
+- https://sellercentral.amazon.com/gspn
+- https://sellercentral.amazon.com/selling-partner-appstore
 summary: null
 marketplace_apps: []
 edges:
@@ -48,4 +51,80 @@ edges:
   detected: '2026-10-20'
   detected_by: mirror-platform-listings.py
   category: Analytics & Reporting, Business Intelligence
+- partner_name: Amazon Selling Partner Appstore
+  partner: amazon-seller-central
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://sellercentral.amazon.com/selling-partner-appstore/dp/amzn1.sp.solution.4822d6eb-8268-4c93-a98c-b00d8140f9f8
+  mirror_of: amazon-seller-central/integrations/amazon-seller-central-integration-edges.yml
+  apps:
+  - Feedvisor
+  detected: '2026-10-21'
+  detected_by: sweep-amazon-sp-api-appstore.py
+- partner_name: Amazon Ads (partner directory, technology)
+  partner: amazon
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://advertising.amazon.com/partners/directory
+  mirror_of: amazon/integrations/amazon-integration-edges.yml
+  apps:
+  - Feedvisor
+  contract_reference:
+    register: Amazon Ads Partner Directory (advertising.amazon.com/partners/directory, GetPartners)
+    registered_name: Feedvisor
+    register_id: amzn1.ads1.ma1.bu7iq9f4i1u15uv9m57jo9bqo
+    matched_domain: feedvisor.com
+    matched_by: domain
+    services:
+    - ADVERTISING_EFFECTIVENESS
+    - AUDIENCE_AND_TARGETING
+    - AUDIENCE_MEASUREMENT
+    - AUDIO_MEASUREMENT
+    - A_PLUS_CONTENT
+    - BRAND_MEASUREMENT
+    - BRAND_SAFETY
+    - BUSINESS_AND_MARKETING_INTELLIGENCE_TOOLS
+    - CAMPAIGN_MANAGEMENT
+    - CAMPAIGN_MONITORING
+    - CAMPAIGN_REPORTING
+    - CAMPAIGN_SETUP
+    - CLEAN_ROOM_ANALYTICS
+    - CLEAN_ROOM_DEVELOPER
+    - CLEAN_ROOM_INTEGRATION
+    ads_products:
+    - AMAZON_ATTRIBUTION
+    - AMAZON_DSP
+    - AMAZON_LIVE
+    - AMAZON_MARKETING_CLOUD
+    - AUDIO_ADS
+    - SPONSORED_BRANDS
+    - SPONSORED_DISPLAY
+    - SPONSORED_PRODUCTS
+    - STORES
+    - VIDEO_ADS
+    service_models:
+    - SELF_SERVICE
+    - SERVICE
+    signal_note: listing = participation; accreditation recorded as partner_tier; ads_certifications are Amazon
+      Ads LEARNING certifications held by staff, not product conformance, never certified_products
+    detected_by: sweep-amazon-sp-api-appstore.py
+    detected: '2026-10-21'
+    ads_certifications:
+    - AMAZON_ADS_FOUNDATIONS
+    - AMAZON_DSP
+    - SPONSORED_ADS
+  detected: '2026-10-21'
+  detected_by: sweep-amazon-sp-api-appstore.py
+  partner_tier:
+  - ADVANCED_PARTNER
 templates: []

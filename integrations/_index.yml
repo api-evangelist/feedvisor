@@ -28,3 +28,71 @@
   relationship: platform-app
   status: not-a-workflow
   arazzo: null
+- slug: feedvisor-amazon-selling-partner-appstore
+  label: Amazon Selling Partner Appstore
+  partner: amazon-seller-central
+  partner_name: Amazon Selling Partner Appstore
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://sellercentral.amazon.com/selling-partner-appstore/dp/amzn1.sp.solution.4822d6eb-8268-4c93-a98c-b00d8140f9f8
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: feedvisor-amazon-ads-partner-directory-technology
+  label: Amazon Ads (partner directory, technology)
+  partner: amazon
+  partner_name: Amazon Ads (partner directory, technology)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://advertising.amazon.com/partners/directory
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: Amazon Ads Partner Directory (advertising.amazon.com/partners/directory, GetPartners)
+    registered_name: Feedvisor
+    register_id: amzn1.ads1.ma1.bu7iq9f4i1u15uv9m57jo9bqo
+    matched_domain: feedvisor.com
+    matched_by: domain
+    services:
+    - ADVERTISING_EFFECTIVENESS
+    - AUDIENCE_AND_TARGETING
+    - AUDIENCE_MEASUREMENT
+    - AUDIO_MEASUREMENT
+    - A_PLUS_CONTENT
+    - BRAND_MEASUREMENT
+    - BRAND_SAFETY
+    - BUSINESS_AND_MARKETING_INTELLIGENCE_TOOLS
+    - CAMPAIGN_MANAGEMENT
+    - CAMPAIGN_MONITORING
+    - CAMPAIGN_REPORTING
+    - CAMPAIGN_SETUP
+    - CLEAN_ROOM_ANALYTICS
+    - CLEAN_ROOM_DEVELOPER
+    - CLEAN_ROOM_INTEGRATION
+    ads_products:
+    - AMAZON_ATTRIBUTION
+    - AMAZON_DSP
+    - AMAZON_LIVE
+    - AMAZON_MARKETING_CLOUD
+    - AUDIO_ADS
+    - SPONSORED_BRANDS
+    - SPONSORED_DISPLAY
+    - SPONSORED_PRODUCTS
+    - STORES
+    - VIDEO_ADS
+    service_models:
+    - SELF_SERVICE
+    - SERVICE
+    signal_note: listing = participation; accreditation recorded as partner_tier; ads_certifications are Amazon
+      Ads LEARNING certifications held by staff, not product conformance, never certified_products
+    detected_by: sweep-amazon-sp-api-appstore.py
+    detected: '2026-10-21'
+    ads_certifications:
+    - AMAZON_ADS_FOUNDATIONS
+    - AMAZON_DSP
+    - SPONSORED_ADS
+  status: not-a-workflow
+  arazzo: null
